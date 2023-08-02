@@ -1,0 +1,38 @@
+import { ComponentNode } from "@/redux/currentApp/editor/components/componentsState"
+
+export interface UpdateComponentContainerPayload {
+  isMove: boolean
+  updateSlice: {
+    component: ComponentNode
+    oldParentDisplayName: string
+  }[]
+}
+export interface UpdateComponentSlicePropsPayload {
+  displayName: string
+  propsSlice: {
+    [key: string]: unknown
+  }
+}
+export interface LayoutInfo {
+  w: number
+  h: number
+  x: number
+  y: number
+  z: number
+  unitW: number
+  unitH: number
+}
+
+export interface StatusInfo {
+  isDragging: boolean
+  isResizing: boolean
+}
+
+export interface UpdateComponentNodeLayoutInfoPayload {
+  displayName: string
+  layoutInfo: Partial<LayoutInfo>
+  statusInfo?: Partial<StatusInfo>
+  options?: Partial<{
+    parentNode: string
+  }>
+}
